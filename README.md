@@ -1,6 +1,8 @@
 # Group: We Love CAD
 Group members: TAN YI EN A18KE0279
+
                KHOO CHIU XUAN A18KE0087
+               
                MUHAMMAD FIRDAUS BIN SAMSUDIN A17KE0167
 
 # 1.0 Introduction
