@@ -1,4 +1,4 @@
-# Group: We Love CAD
+# Project: Tic Tac Toe by group We Love CAD
 Group members: 
 
 TAN YI EN A18KE0279
