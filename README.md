@@ -54,19 +54,28 @@ Altera Quartus II
 
 # Simulation Results
 ![image](https://user-images.githubusercontent.com/87267229/125202568-b55ab000-e2a6-11eb-827f-bbfdec958756.png)
+
 Figure 3. Compilation report of top level module
+
 ![image](https://user-images.githubusercontent.com/87267229/125202607-e4712180-e2a6-11eb-80bf-676346c06f47.png)
+
 Figure 4. Simulation waveform using the testbench
 
 # Diagram Generated from Code in Quartus II
 ![image](https://user-images.githubusercontent.com/87267229/125196802-c3500700-e28d-11eb-96bf-84ad84d87bd9.png)
+
 Figure 5. Block dragram of top level module with pin planned
+
 ![image](https://user-images.githubusercontent.com/87267229/125196838-ee3a5b00-e28d-11eb-9d92-26231f718a8a.png)
+
 Figure 6. IOBD of DU and CU
+
 ![image](https://user-images.githubusercontent.com/87267229/125202633-04a0e080-e2a7-11eb-8207-80d8e694a9c9.png)
 ![image](https://user-images.githubusercontent.com/87267229/125202667-1c786480-e2a7-11eb-92f9-820ae84d21cc.png)
+
 Figure 7: Pin planner of the project
 
 # Hardware Implementation
 ![image](https://user-images.githubusercontent.com/87267229/125202716-737e3980-e2a7-11eb-80d5-625f67332efa.png)
+
 Figure 8. Hardware implementation on CPLD
