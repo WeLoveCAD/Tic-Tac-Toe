@@ -1,9 +1,8 @@
 # Group: We Love CAD
-Group members: TAN YI EN A18KE0279
-
-               KHOO CHIU XUAN A18KE0087
-               
-               MUHAMMAD FIRDAUS BIN SAMSUDIN A17KE0167
+Group members: 
+TAN YI EN A18KE0279
+KHOO CHIU XUAN A18KE0087
+MUHAMMAD FIRDAUS BIN SAMSUDIN A17KE0167
 
 # 1.0 Introduction
 Tic Tac Toe is a very popular paper-and-pencil game in a 3x3 grid for two players. The player who makes the first three of their marks in a diagonal, vertical, or horizontal row wins the game.
