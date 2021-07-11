@@ -7,7 +7,7 @@ KHOO CHIU XUAN A18KE0087
 
 MUHAMMAD FIRDAUS BIN SAMSUDIN A17KE0167
 
-# 1.0 Project Introduction
+# Project Introduction
 Tic Tac Toe is a very popular paper-and-pencil game in a 3x3 grid for two players. The player who makes the first three of their marks in a diagonal, vertical, or horizontal row wins the game.
 
 Rules for Tic Tac Toe:
@@ -39,98 +39,34 @@ Altera Quartus II
 8. Male-to-male jumper wires
 
 # Datapath Unit Verilog Code
-module Datapath(
-    input rst1, rst2, done,
-    input [8:0] player1, player2,
-    output reg p1win, p2win,
-    output reset,
-    output reg [8:0] p1out, p2out);
-    
-   initial begin p1out=0; p2out=0; end
-
-   always@*
-     begin
-      if (rst1 == 1 || rst2 == 1 || done) 
-        begin p1out <= 0; p2out <= 0; end
-      else
-        begin p1out = player1; p2out = player2; end
-     end
-
-   assign reset = rst1 || rst2;
-
-   always@*
-    begin
-      if (p1out[0]==1 && p1out[1]==1 && p1out[2]==1) p1win<=1;
-      else if (p1out[3]==1 && p1out[4]==1 && p1out[5]==1) p1win<=1;
-      else if (p1out[6]==1 && p1out[7]==1 && p1out[8]==1) p1win<=1;
-      else if (p1out[0]==1 && p1out[3]==1 && p1out[6]==1) p1win<=1;
-      else if (p1out[1]==1 && p1out[4]==1 && p1out[7]==1) p1win<=1;
-      else if (p1out[2]==1 && p1out[5]==1 && p1out[8]==1) p1win<=1;
-      else if (p1out[0]==1 && p1out[4]==1 && p1out[8]==1) p1win<=1;
-      else if (p1out[2]==1 && p1out[4]==1 && p1out[6]==1) p1win<=1;
-      else p1win<=0;
-    end
-
-   always@*
-    begin
-      if (p2out[0]==1 && p2out[1]==1 && p2out[2]==1) p2win<=1;
-      else if (p2out[3]==1 && p2out[4]==1 && p2out[5]==1) p2win<=1;
-      else if (p2out[6]==1 && p2out[7]==1 && p2out[8]==1) p2win<=1;
-      else if (p2out[0]==1 && p2out[3]==1 && p2out[6]==1) p2win<=1;
-      else if (p2out[1]==1 && p2out[4]==1 && p2out[7]==1) p2win<=1;
-      else if (p2out[2]==1 && p2out[5]==1 && p2out[8]==1) p2win<=1;
-      else if (p2out[0]==1 && p2out[4]==1 && p2out[8]==1) p2win<=1;
-      else if (p2out[2]==1 && p2out[4]==1 && p2out[6]==1) p2win<=1;
-      else p2win<=0;
-    end
-endmodule
+![image](https://user-images.githubusercontent.com/87267229/125199352-702f8180-e298-11eb-80e3-ab10f839cbe7.png)
+![image](https://user-images.githubusercontent.com/87267229/125199379-876e6f00-e298-11eb-96d1-6ffa5d9a6a4c.png)
 
 # Control Unit Verilog Code
-module Control(
-    input reset, clk,
-    input p1win, p2win,
-    output reg led1win, led2win, done);
-    reg ps, ns;
-
-   always @(posedge clk, posedge reset)
-     if (reset == 1) ps <= 0;
-     else ps <= ns;
-
-   always@(ps, p1win, p2win, reset)
-     begin led1win=0; led2win=0; done=0;
-        case (ps)
-          0: if (reset==1) ns=0; else ns=1;
-          1: if (p1win==1 && p2win==0) begin ns=0; led1win=1; done=1; end
-                  else if (p1win==0 && p2win==1) begin ns=0; led2win=1; done=1; end
-                  else ns=1;
-        endcase
-     end
-endmodule
+![image](https://user-images.githubusercontent.com/87267229/125199311-378fa800-e298-11eb-9c73-f9cf0bcc691d.png)
 
 # Top Level Module Verilog Code
-module tictactoe(
-    input clk, rst1, rst2,
-    input [8:0] player1, player2,
-    output reset, p1win, p2win, led1win, led2win, done,
-    output [8:0] p1out, p2out
-    );
-    
-   Datapath u1(
-        .rst1(rst1) ,.rst2(rst2),.done(done), .player1(player1), .player2(player2),
-        .p1win(p1win), .p2win(p2win), .reset(reset), .p1out(p1out), .p2out(p2out)
-    );
-    
-   Control u2(
-        .reset(reset), .clk(clk), .p1win(p1win), .p2win(p2win),
-        .done(done), .led1win(led1win), .led2win(led2win)
-    );
-endmodule
+![image](https://user-images.githubusercontent.com/87267229/125199329-4ece9580-e298-11eb-9075-2ea0a93b9ecf.png)
+
+# Testbench Verilog Code
+![image](https://user-images.githubusercontent.com/87267229/125202138-d0c4bb80-e2a4-11eb-8abc-dc8ad45b45f2.png)
+![image](https://user-images.githubusercontent.com/87267229/125202155-dfab6e00-e2a4-11eb-99cb-71d68367dc63.png)
+
+# Simulation Results
+![image](https://user-images.githubusercontent.com/87267229/125202568-b55ab000-e2a6-11eb-827f-bbfdec958756.png)
+Figure 3. Compilation report of top level module
+![image](https://user-images.githubusercontent.com/87267229/125202607-e4712180-e2a6-11eb-80bf-676346c06f47.png)
+Figure 4. Simulation waveform using the testbench
 
 # Diagram Generated from Code in Quartus II
 ![image](https://user-images.githubusercontent.com/87267229/125196802-c3500700-e28d-11eb-96bf-84ad84d87bd9.png)
-Figure 3. Block dragram of Top Level Module
+Figure 5. Block dragram of top level module with pin planned
 ![image](https://user-images.githubusercontent.com/87267229/125196838-ee3a5b00-e28d-11eb-9d92-26231f718a8a.png)
-Figure 4. IOBD of DU and CU
+Figure 6. IOBD of DU and CU
+![image](https://user-images.githubusercontent.com/87267229/125202633-04a0e080-e2a7-11eb-8207-80d8e694a9c9.png)
+![image](https://user-images.githubusercontent.com/87267229/125202667-1c786480-e2a7-11eb-92f9-820ae84d21cc.png)
+Figure 7: Pin planner of the project
 
-
-
+# Hardware Implementation
+![image](https://user-images.githubusercontent.com/87267229/125202716-737e3980-e2a7-11eb-80d5-625f67332efa.png)
+Figure 8. Hardware implementation on CPLD
