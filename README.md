@@ -64,7 +64,7 @@ Figure 4. Simulation waveform using the testbench
 # Diagram Generated from Code in Quartus II
 ![image](https://user-images.githubusercontent.com/87267229/125196802-c3500700-e28d-11eb-96bf-84ad84d87bd9.png)
 
-Figure 5. Block dragram of top level module with pin planned
+Figure 5. Block diagram of top level module with pin planned
 
 ![image](https://user-images.githubusercontent.com/87267229/125196838-ee3a5b00-e28d-11eb-9d92-26231f718a8a.png)
 
